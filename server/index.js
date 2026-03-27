@@ -136,7 +136,7 @@ app.get('/api/status', (req, res) => {
 });
 
 // Catch-all to serve React's index.html for any other route
-app.get('*', (req, res) => {
+app.get('(.*)', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
