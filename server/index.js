@@ -135,8 +135,8 @@ app.get('/api/status', (req, res) => {
     });
 });
 
-// Catch-all to serve React's index.html for any other route
-app.get('/:path*', (req, res) => {
+// Fallback: serve React's index.html for any unmatched routes (SPA support)
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
