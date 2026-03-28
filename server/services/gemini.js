@@ -9,7 +9,8 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
  * Returns { is_emergency, kinyarwanda_summary, confidence, suggested_action }
  */
 async function performTriage(transcript) {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Upgraded to Gemini 2.0 Flash for better speed and reliability
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `
     You are a medical triage assistant for the Ramba Voice Platform in Rwanda.
@@ -50,7 +51,8 @@ async function performTriage(transcript) {
  * Uses a knowledge base and Gemini to provide reliable health info.
  */
 async function getMedicalAdvice(userQuery) {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Upgraded to Gemini 2.0 Flash for superior medical reasoning
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     
     // Load RAG Knowledge Base
     const knowledgePath = path.join(__dirname, 'rag_knowledge.json');
