@@ -88,13 +88,20 @@ async function getMedicalAdvice(userQuery) {
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
-        const jsonStr = text.replace(/```json|```/g, '').trim();
-        return JSON.parse(jsonStr);
+        console.log("Raw Gemini Response:", text);
+
+        // Robust JSON extraction
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) {
+            throw new Error("No JSON found in response");
+        }
+        
+        return JSON.parse(jsonMatch[0]);
     } catch (error) {
         console.error("Gemini Advice Error:", error);
         return { 
             language: "English", 
-            advice: "I am having trouble processing your request right now. Please visit your nearest health centre if you are feeling unwell.",
+            advice: `Error: ${error.message}. Please visit your nearest health centre if you are feeling unwell.`,
             confidence: 0,
             is_emergency: false
         };
