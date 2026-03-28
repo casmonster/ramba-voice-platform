@@ -6,6 +6,7 @@ import Architecture from './pages/Architecture';
 import PatientJourney from './pages/PatientJourney';
 import LiveDashboard from './pages/LiveDashboard';
 import Surveillance from './pages/DiseaseSurveillance';
+import HealthAssistant from './pages/HealthAssistant';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="journey" element={<PatientJourney />} />
           <Route path="dashboard" element={<LiveDashboard />} />
           <Route path="surveillance" element={<Surveillance />} />
+          <Route path="health-assistant" element={<HealthAssistant />} />
         </Route>
       </Routes>
     </BrowserRouter>

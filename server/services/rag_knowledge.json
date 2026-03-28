@@ -1,0 +1,24 @@
+{
+  "protocols": {
+    "malaria": {
+      "kinyarwanda": "Malariya iterwa n'imibu. Ibiranga ni umuriro mwinshi, gukonja, gukonja mu mitsi, na kuribwa mu nda. Ivurwa binyuze mu miti ya Coartem cyangwa indi yo kwivura malaria.",
+      "english": "Malaria is caused by mosquitoes. Symptoms include high fever, chills, joint pain, and abdominal pain. It is treated with Coartem or other authorized anti-malaria medications.",
+      "alert_level": "High"
+    },
+    "flu_and_cough": {
+      "kinyarwanda": "Inkorora n'ibicurane bitwara iminsi mike kwikira. Kunywa amazi mwinshi no kuruhuka ni ingenzi. Niba inkorora itinze, sura ivuriro ryawe.",
+      "english": "Flu and cough usually take a few days to clear. Drink plenty of fluids and rest. If the cough persists, visit your local health centre.",
+      "alert_level": "Low"
+    },
+    "injury": {
+      "kinyarwanda": "Niba ufite igikomere gikomeye, gishireho igitambaro gifite isuku cyangwa bande. Niba hari amaraso menshi, tabaza SAMU.",
+      "english": "For serious injuries, apply a clean cloth or bandage. If there is heavy bleeding, call SAMU emergency.",
+      "alert_level": "Emergency"
+    },
+    "maternal_health": {
+      "kinyarwanda": "Abategarugori batwite bagomba gusura ivuriro byibuze inshuro umunani kugira ngo bakurikiranwe.",
+      "english": "Pregnant women should visit the health centre at least eight times for prenatal follow-up.",
+      "alert_level": "Moderate"
+    }
+  }
+}

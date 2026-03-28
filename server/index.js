@@ -8,6 +8,20 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Africa's Talking Configuration
+const credentials = {
+    apiKey: process.env.AT_API_KEY,
+    username: process.env.AT_USERNAME,
+};
+const AT = require('africastalking')(credentials);
+const voice = AT.VOICE;
+const sms = AT.SMS;
+const { performTriage, getMedicalAdvice } = require('./services/gemini');
+
+// Global state for demonstration (In production, use Redis/DB)
+let liveCalls = [];
+
 // --- Webhooks & API ---
 // IMPORTANT: These must come BEFORE static file serving to avoid being caught by the SPA catch-all
 
@@ -95,6 +109,22 @@ app.post('/voice/process', async (req, res) => {
         </Response>`);
 });
 
+/**
+ * AI Health Assistant Advice
+ */
+app.post('/api/advice', async (req, res) => {
+    const { query } = req.body;
+    console.log(`Health Advice Request: "${query}"`);
+
+    if (!query) {
+        return res.status(400).json({ error: "Query is required" });
+    }
+
+    const advice = await getMedicalAdvice(query);
+    res.json(advice);
+});
+
+// API for Dashboard
 app.get('/api/status', (req, res) => {
     res.json({
         totalCalls: liveCalls.length,

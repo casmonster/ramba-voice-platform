@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Activity, LayoutDashboard, HeartPulse, ShieldAlert, GitBranch } from 'lucide-react';
+import { Activity, LayoutDashboard, HeartPulse, ShieldAlert, GitBranch, Stethoscope } from 'lucide-react';
 
 const Layout = () => {
   const navItems = [
@@ -9,6 +9,7 @@ const Layout = () => {
     { label: 'Patient Journey', path: '/journey', icon: HeartPulse },
     { label: 'Live Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { label: 'Surveillance', path: '/surveillance', icon: ShieldAlert },
+    { label: 'Health Assistant', path: '/health-assistant', icon: Stethoscope },
   ];
 
   return (
